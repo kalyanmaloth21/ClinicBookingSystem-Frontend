@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Appointment Management</h1>
+  
+  <div class="tabs">
+    <button id="tab-list" (click)="switchTab('list')" [class.active]="activeTab === 'list'">
+      View Appointments
+    </button>
+    <button id="tab-add" (click)="switchTab('add')" [class.active]="activeTab === 'add'">
+      Book Appointment
+    </button>
+  </div>
+
+  <div *ngIf="activeTab === 'list'" class="tab-content">
+    <h2>Appointments List</h2>
+
+    <!-- Loading -->
+    <p *ngIf="loading">Loading appointments...</p>
+
+    <!-- Error -->
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <!-- Table -->
+    <table id="appointments-table" *ngIf="!loading && !errorMessage">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Patient Name</th>
+          <th>Doctor Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Duration (minutes)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{ appointment.id }}</td>
+          <td class="patient-name">{{ appointment.patientName }}</td>
+          <td class="doctor-name">{{ appointment.doctorName }}</td>
+          <td>{{ appointment.date }}</td>
+          <td>{{ appointment.time }}</td>
+          <td>{{ appointment.durationInMinutes }}</td>
+          <td>
+            <button 
+              class="btn-delete" 
+              (click)="deleteAppointment(appointment.id)"
+              title="Delete appointment">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="activeTab === 'add'" class="tab-content">
+    <app-add-appointment (onAppointmentAdded)="onAppointmentAdded()"></app-add-appointment>
+  </div>
+</div>

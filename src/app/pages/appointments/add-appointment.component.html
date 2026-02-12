@@ -1,0 +1,95 @@
+<div class="form-container">
+  <h2>Book an Appointment</h2>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <div class="form-group">
+      <label for="patientId">Select Patient:</label>
+      <select 
+        id="patientId"
+        [(ngModel)]="appointment.patientId" 
+        name="patientId" 
+        required>
+        <option value="">Choose a patient</option>
+        <option *ngFor="let patient of patients" [value]="patient.id">
+          {{ patient.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="doctorId">Select Doctor:</label>
+      <select 
+        id="doctorId"
+        [(ngModel)]="appointment.doctorId" 
+        name="doctorId" 
+        required>
+        <option value="">Choose a doctor</option>
+        <option *ngFor="let doctor of doctors" [value]="doctor.id">
+          {{ doctor.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input 
+        type="date" 
+        id="date"
+        [(ngModel)]="appointment.date" 
+        name="date" 
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="startTime">Start Time:</label>
+      <input 
+        type="time" 
+        id="startTime"
+        [(ngModel)]="appointment.startTime" 
+        name="startTime"
+        (change)="calculateEndTime()"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Duration (minutes):</label>
+      <input 
+        type="number" 
+        id="duration"
+        [(ngModel)]="appointment.durationInMinutes" 
+        name="duration"
+        min="1"
+        (change)="calculateEndTime()"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="endTime">End Time:</label>
+      <input 
+        type="time" 
+        id="endTime"
+        [(ngModel)]="appointment.endTime" 
+        name="endTime"
+        readonly
+        class="end-time-display">
+    </div>
+
+    <div class="form-group">
+      <label for="reason">Reason for Visit:</label>
+      <textarea 
+        id="reason"
+        [(ngModel)]="appointment.reason" 
+        name="reason" 
+        required></textarea>
+    </div>
+
+    <button 
+      id="saveAppointment"
+      type="submit" 
+      class="btn-submit"
+      [disabled]="form.invalid">
+      Book Appointment
+    </button>
+  </form>
+</div>

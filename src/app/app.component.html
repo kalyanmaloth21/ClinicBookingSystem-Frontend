@@ -1,0 +1,21 @@
+<div class="app-container">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <h1>Clinic Booking System</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a routerLink="/doctors" routerLinkActive="active">Doctors</a></li>
+      <li><a routerLink="/patients" routerLinkActive="active">Patients</a></li>
+      <li><a routerLink="/appointments" routerLinkActive="active">Appointments</a></li>
+      <li><a routerLink="/search-patient" routerLinkActive="active">Search Patient</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Clinic Booking System. All rights reserved.</p>
+  </footer>
+</div>

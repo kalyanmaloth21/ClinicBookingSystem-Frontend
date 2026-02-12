@@ -1,0 +1,105 @@
+<div class="form-container">
+  <h2>Add Doctor</h2>
+
+  <form #doctorForm="ngForm" (ngSubmit)="onSubmit(doctorForm)">
+
+
+    <!-- NAME -->
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input 
+  type="text" 
+  id="name" 
+  [(ngModel)]="doctor.name" 
+  name="name"
+  #name="ngModel"
+  required
+  [class.invalid]="name.invalid && (name.touched || doctorForm.submitted)">
+
+<small class="error" *ngIf="name.invalid && (name.touched || doctorForm.submitted)">
+  Name is required
+</small>
+
+    </div>
+
+    <!-- SPECIALIZATION -->
+    <div class="form-group">
+      
+      <label for="specialization">Specialization:</label>
+      <select
+        id="specialization"
+        [(ngModel)]="doctor.specialization"
+        name="specialization"
+        #specialization="ngModel"
+        required
+        [class.invalid]="specialization.invalid && (specialization.touched || doctorForm.submitted)">
+        <option value="" disabled selected>Select specialization</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="General Medicine">General Medicine</option>
+      </select>
+
+<small class="error" *ngIf="specialization.invalid && (specialization.touched || doctorForm.submitted)">
+  Specialization is required
+</small>
+
+    </div>
+
+    <!-- PHONE -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input 
+  type="tel" 
+  id="phoneNumber" 
+  [(ngModel)]="doctor.phoneNumber" 
+  name="phoneNumber"
+  #phone="ngModel"
+  required
+  pattern="^[0-9]{10}$"
+  [class.invalid]="phone.invalid && (phone.touched || doctorForm.submitted)">
+
+<small class="error" *ngIf="phone.errors?.['required'] && (phone.touched || doctorForm.submitted)">
+  Phone number is required
+</small>
+
+<small class="error" *ngIf="phone.errors?.['pattern'] && (phone.touched || doctorForm.submitted)">
+  Enter valid 10 digit phone number
+</small>
+
+    </div>
+
+    <!-- EMAIL -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input 
+  type="email" 
+  id="email" 
+  [(ngModel)]="doctor.email" 
+  name="email"
+  #email="ngModel"
+  required
+  email
+  [class.invalid]="email.invalid && (email.touched || doctorForm.submitted)">
+
+<small class="error" *ngIf="email.errors?.['required'] && (email.touched || doctorForm.submitted)">
+  Email is required
+</small>
+
+<small class="error" *ngIf="email.errors?.['email'] && (email.touched || doctorForm.submitted)">
+  Invalid email format
+</small>
+
+    </div>
+
+    <button 
+      type="submit" 
+      class="btn-submit"
+      >
+      Add Doctor
+    </button>
+
+  </form>
+</div>

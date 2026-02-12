@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Patient Management</h1>
+  
+  <div class="tabs">
+    <button (click)="switchTab('list')" [class.active]="activeTab === 'list'">View Patients</button>
+    <button (click)="switchTab('add')" [class.active]="activeTab === 'add'">Register Patient</button>
+  </div>
+
+  <div *ngIf="activeTab === 'list'" class="tab-content">
+    <h2>Patients List</h2>
+    <p *ngIf="loading">Loading patients...</p>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <table *ngIf="!loading && !errorMessage">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.id }}</td>
+          <td>{{ patient.name }}</td>
+          <td>{{ patient.email }}</td>
+          <td>{{ patient.phoneNumber }}</td>
+          <td>
+            <button 
+              class="btn-delete" 
+              (click)="deletePatient(patient.id)"
+              title="Delete patient">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="activeTab === 'add'" class="tab-content">
+    <app-add-patient (onPatientAdded)="onPatientAdded()"></app-add-patient>
+  </div>
+</div>

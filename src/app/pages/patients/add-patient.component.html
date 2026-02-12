@@ -1,0 +1,58 @@
+<div class="form-container">
+  <h2>Patient Registration Form</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Full Name:</label>
+      <input 
+        type="text" 
+        id="name" 
+        [(ngModel)]="patient.name" 
+        name="name" 
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input 
+        type="email" 
+        id="email" 
+        [(ngModel)]="patient.email" 
+        name="email" 
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        [(ngModel)]="patient.phone" 
+        name="phone" 
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input 
+        type="date" 
+        id="dateOfBirth" 
+        [(ngModel)]="patient.dateOfBirth" 
+        name="dateOfBirth" 
+        required>
+    </div>
+     <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" [(ngModel)]="patient.gender" name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+       
+
+   
+
+    <button type="submit" class="btn-submit">Register Patient</button>
+  </form>
+</div>

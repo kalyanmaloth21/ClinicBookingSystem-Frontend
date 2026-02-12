@@ -1,0 +1,56 @@
+<div class="container">
+  <h1>Search Patient</h1>
+  
+  <div class="search-box">
+    <h2>Patient Details by Id</h2>
+
+    <form (ngSubmit)="onSearch()">
+      <div class="form-group">
+        <label for="idNumber">Id Number:</label>
+        <input 
+          type="text" 
+          id="idNumber" 
+          [(ngModel)]="idNumber" 
+          name="idNumber" 
+          placeholder="Enter patient id number"
+          required>
+      </div>
+
+      <button id="btn-search" type="submit" class="btn-search">Search</button>
+      <button id="btn-reset" type="button" (click)="resetSearch()" class="btn-reset">Reset</button>
+    </form>
+
+    <p *ngIf="loading">Searching patient...</p>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="searched && patientData" class="patient-details">
+    <h2>Patient Information</h2>
+    <table>
+      <tr>
+        <th>id Number</th>
+        <td>{{ patientData.id }}</td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td>{{ patientData.name }}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{ patientData.email }}</td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td>{{ patientData.phoneNumber }}</td>
+      </tr>
+      <tr>
+        <th>Date of Birth</th>
+        <td>{{ patientData.dateOfBirth | date }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="searched && !patientData && !loading" class="no-results">
+    <p>No patient found with the given file number.</p>
+  </div>
+</div>

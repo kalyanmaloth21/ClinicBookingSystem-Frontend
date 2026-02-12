@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Appointment</title>
+</head>
+<body>
+    <h2>Add Appointments</h2>
+
+    <form id="appointmentForm">
+        <label for="doctorId">Doctor:</label>
+        <select id="doctorId" name="doctorId" required>
+            <option value="">Select Doctor</option>
+        </select><br><br>
+
+        <label for="patientId">Patient:</label>
+        <select id="patientId" name="patientId" required>
+            <option value="">Select Patient</option>
+        </select><br><br>
+
+        <label for="startTime">Start Time:</label>
+        <input type="datetime-local" id="startTime" required><br><br>
+
+        <label for="endTime">End Time:</label>
+        <input type="datetime-local" id="endTime" required><br><br>
+
+        <label for="notes">Notes:</label>
+        <input type="text" id="notes"><br><br>
+
+        <button type="submit">Add Appointment</button>
+    </form>
+
+    <script src="appointment.js"></script>
+</body>
+</html>
