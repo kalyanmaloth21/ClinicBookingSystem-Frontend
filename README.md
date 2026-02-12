@@ -1,47 +1,94 @@
-# Clinic Booking System
+# 🏥 Clinic Booking System – Frontend (Angular)
 
-This project is a frontend application for a clinic booking system built using Angular. It allows users to manage and book appointments with various healthcare providers.
+This project is the **Angular frontend application** for the Clinic Booking System.
+It allows clinic staff to manage doctors, patients, and appointments through a simple web interface.
 
-## Project Structure
+The UI communicates with a .NET Web API backend to store and retrieve real clinic data.
 
-- **src/app/components**: Contains Angular components that define the UI elements and their behavior.
-- **src/app/services/task.service.ts**: Manages task-related operations, including retrieving a list of tasks.
-- **src/app/models/task.model.ts**: Defines the structure of a task object with properties like id, title, description, and completed.
-- **src/app/app.module.ts**: The root module of the application, importing necessary modules and declaring components.
-- **src/app/app.component.ts**: The root component of the application, serving as the main entry point for the UI.
-- **src/assets**: Contains static assets such as images and styles used in the application.
-- **src/environments**: Contains environment-specific settings for development and production builds.
-- **src/main.ts**: The main entry point for the Angular application, bootstrapping the AppModule.
+---
 
-## Setup Instructions
+## 🚀 Features
 
-1. **Clone the repository**:
-   ```
-   git clone <repository-url>
-   ```
+* Add Doctors
+* View Doctors List
+* Add Patients
+* Search Patients
+* Book Appointments
+* View Appointment Details
+* Form Validation with Required Fields
+* REST API Integration
 
-2. **Navigate to the project directory**:
-   ```
-   cd ClinicBookingSystem-Frontend
-   ```
+---
 
-3. **Install dependencies**:
-   ```
-   npm install
-   ```
+## 🛠️ Tech Stack
 
-4. **Run the application**:
-   ```
-   ng serve
-   ```
+* Angular
+* TypeScript
+* HTML5
+* CSS3
+* REST API (ASP.NET Core Backend)
 
-5. **Open your browser** and navigate to `http://localhost:4200` to view the application.
+---
 
-## Usage Guidelines
+## 📁 Project Structure
 
-- Users can view, add, and manage tasks related to clinic bookings.
-- The application is designed to be user-friendly and responsive.
+* **src/app/components** – Reusable UI components
+* **src/app/pages** – Doctors, Patients, Appointments modules
+* **src/app/services** – Handles API calls to backend
+* **src/app/models** – Data models for application entities
+* **src/app/app.module.ts** – Root module
+* **src/app/app.component.ts** – Main UI entry component
+* **src/assets** – Static files (images/styles)
+* **src/environments** – Environment configurations
+* **src/main.ts** – Application bootstrap file
 
-## Contributing
+---
 
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
+```
+git clone https://github.com/kalyanmaloth21/ClinicBookingSystem-Frontend.git
+```
+
+### 2️⃣ Navigate to the project folder
+
+```
+cd ClinicBookingSystem-Frontend
+```
+
+### 3️⃣ Install dependencies
+
+```
+npm install
+```
+
+### 4️⃣ Run the Angular server
+
+```
+ng serve
+```
+
+Open in browser:
+
+```
+http://localhost:4200
+```
+
+---
+
+## 🔗 Backend Requirement
+
+This project requires the backend API to be running.
+
+Backend Repository:
+👉 https://github.com/kalyanmaloth21/ClinicBookingSystem-Backend
+
+Start backend first, then start Angular UI.
+
+---
+
+## 💡 Usage
+
+The system allows clinic reception/admin staff
